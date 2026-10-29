@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Clandinin Lab — Stanford Neurobiology</title>
+<meta name="description" content="The Clandinin Lab at Stanford studies how neuronal circuits assemble, function, and compute, using the remarkable brain of the fruit fly as a model." />
+<meta name="theme-color" content="#f6f2e8" />
+
+<!-- TAB ICON -->
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="images/brand/favicon-32.png">
+<link rel="apple-touch-icon" href="images/brand/apple-touch-icon.png">
+
+<!-- LINK PREVIEW (the card shown when the site is shared in texts, Slack, email, social media).
+     ✏️ If the site moves to a different web address, change the 2 lines that contain
+     "clandininlab.github.io" below to the new address. -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Clandinin Lab" />
+<meta property="og:title" content="Clandinin Lab — Stanford Neurobiology" />
+<meta property="og:description" content="How neuronal circuits assemble, are maintained, and compute, studied in the fruit fly brain." />
+<meta property="og:url" content="https://clandininlab.github.io/" />
+<meta property="og:image" content="https://clandininlab.github.io/images/brand/share-card.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Clandinin Lab: How the brain computes, one fruit fly at a time. Stained-glass illustration of a fruit fly." />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=Spline+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.min.js"></script>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" data-go="home">
+      <!-- LOGO: replace the <img> src with your logo file. Falls back to a fly mark. -->
+      <span class="mark">
+        <img src="images/brand/logo-mark.png" alt="Clandinin Lab" style="width:40px;height:40px;object-fit:cover;border-radius:50%;">
+        <svg style="display:none" width="38" height="38" viewBox="0 0 40 40" aria-hidden="true">
+          <circle cx="20" cy="20" r="18" fill="#4d5727"/>
+          <ellipse cx="13" cy="16" rx="5" ry="6.5" fill="#b23a2e"/>
+          <ellipse cx="27" cy="16" rx="5" ry="6.5" fill="#b23a2e"/>
+          <path d="M14 26 q6 6 12 0" stroke="#d9ad4c" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+        </svg>
+      </span>
+      <span class="brand-text"><b>Clandinin Lab</b><span>Stanford Neurobiology</span></span>
+    </a>
+    <button class="menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    <nav class="links">
+      <button data-go="home" class="active">Home</button>
+      <div class="nav-drop">
+        <button data-go="research">Pillars of Inquiry</button>
+        <div class="nav-menu">
+          <button data-go="energy">Energy in the Brain</button>
+          <button data-go="behavior">Brain-wide Behavior</button>
+          <button data-go="visual-computation">Structure &amp; Function in Vision</button>
+          <button data-go="neurodegeneration">Neurodegeneration</button>
+        </div>
+      </div>
+      <button data-go="people">Meet the Lab</button>
+      <button data-go="tools">Tools</button>
+      <button data-go="publications">Publications</button>
+      <button data-go="outreach">Outreach</button>
+      <button data-go="join">Join the Lab</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- ============ HOME ============ -->
+  <section class="page active" id="home">
+    <div class="hero stagger">
+      <div>
+        <!-- ✏️ EDIT HOME TEXT: change the three lines below to whatever you like. -->
+        <p class="eyebrow">Stanford University · Department of Neurobiology</p>
+        <h1>How the brain <em>computes</em>, one fruit fly at a time.</h1>
+        <p class="lead">The Clandinin Lab studies how neuronal circuits assemble during development, how they are maintained across adult life, and how they carry out the computations that drive behavior — using the remarkable brain of <em>Drosophila</em> as a model.</p>
+        <!-- /edit -->
+        <div class="hero-cta">
+          <a class="btn" data-go="research">Explore our research</a>
+          <a class="btn ghost" data-go="join">Join the lab</a>
+        </div>
+      </div>
+
+      <div>
+        <!-- HERO IMAGE: replace images/brand/lab-logo.png to change it.
+             Clicking it opens the Eclosion game (address set in js/main.js, search "ECLOSION_URL"). -->
+        <div class="eye-frame">
+          <div class="inner">
+            <img id="labLogo" class="game-door" src="images/brand/lab-logo.png" alt="Clandinin Lab logo. Click to play Eclosion, a fruit-fly game" role="button" tabindex="0"
+                 onerror="this.style.display='none';this.nextElementSibling.classList.add('show');">
+            <div class="img-fallback" id="ommatidia"></div>
+          </div>
+        </div>
+        <button type="button" class="game-hint" id="gameHint"><span aria-hidden="true">&#9654;</span> Play <em>Eclosion</em></button>
+      </div>
+    </div>
+
+    <div class="home-strip stagger">
+      <div class="stat"><b>2002</b><span>Lab established at Stanford by Thomas R. Clandinin</span></div>
+      <div class="stat"><b>60+</b><span>Graduate students, postdocs &amp; trainees trained</span></div>
+      <div class="stat"><b>&infin;</b><span>Flies crossed, fed, and imaged</span></div>
+    </div>
+
+    <div class="eye-explore">
+      <p class="eyebrow">Interactive</p>
+      <h2 class="eye-explore-title">From the eye to a single neuron</h2>
+      <p class="eye-explore-sub">The red canopy is a fruit fly's compound eye; the branches below are the neurons of its visual system. Move your mouse across the canvas — as you spread the branches, the whole visual system resolves into a single neuron, with its dendrites, soma and nucleus, axon, and the energy that keeps it firing.</p>
+      <div class="eye-explore-grid">
+        <div class="eye-canvas-wrap" id="eyeTreeCanvas"><div class="eye-loading">Loading interactive…</div></div>
+        <div class="eye-info" id="eyeInfo">
+          <div class="eye-track"><span class="eye-track-fill" id="eyeTrackFill"></span></div>
+          <div class="eye-track-labels"><span>Whole visual system</span><span>Single neuron</span></div>
+          <div class="eye-state active" data-state="system">
+            <h3>A whole visual system</h3>
+            <p>A fruit fly's compound eye is built from roughly 800 ommatidia, each feeding a column of neurons. Signals pass from the photoreceptors through the lamina, medulla, and lobula — stacked layers of circuitry where motion, color, and form are computed before they ever reach the legs and wings. The branching stands in for that cascade: a few inputs fanning out into the architecture of sight.</p>
+          </div>
+          <div class="eye-state" data-state="neuron">
+            <h3>Down to two neurons</h3>
+            <p>Spread the branches all the way and the system resolves into a pair of neurons meeting at a synapse — each with its dendrites, soma and nucleus, and axon. Firing across that connection is metabolically expensive: neurons regenerate ATP mostly through oxidative phosphorylation (OXPHOS) in their mitochondria, matching energy supply to the moment-to-moment demands of computation. The lab measures how that energy budget shifts as a circuit works — supply meeting demand, spike by spike.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="fly-behavior">
+      <div class="fb-text">
+        <p class="eyebrow">Neural correlates of behavior</p>
+        <h2>Watching behavior, reading the brain</h2>
+        <p class="fb-blurb">A tethered fly can walk, turn, and react on an air-cushioned ball while we image its brain — so we can line up what the animal <em>does</em> with what its neurons are doing. This is how we study the neural correlates of behavior: the split-second escape from a looming threat, the pull of a moving scene, and the way sleep and arousal reshape activity across the whole brain.</p>
+      </div>
+      <div class="fb-ball">
+        <div class="fb-orb" id="fbOrb">
+          <canvas class="fb-canvas" id="fbCanvas"></canvas>
+          <span class="fb-icon" title="Looming stimulus"><svg viewBox="0 0 48 48">
+            <circle class="loom" cx="24" cy="24" r="19" fill="#1c1a14"/>
+          </svg><svg class="fb-lbl" viewBox="-50 -50 100 100" aria-hidden="true"><defs><path id="fbL1" d="M-38.5 0 A38.5 38.5 0 0 1 38.5 0"/></defs><text><textPath href="#fbL1" startOffset="50%" text-anchor="middle">Looming</textPath></text></svg></span>
+          <span class="fb-icon" title="Drifting grating"><svg viewBox="0 0 48 48">
+            <defs><clipPath id="fbClip"><circle cx="24" cy="24" r="19"/></clipPath></defs>
+            <g clip-path="url(#fbClip)"><g class="grate">
+              <rect x="-12" y="5" width="6" height="38" fill="#3f3a24"/><rect x="0" y="5" width="6" height="38" fill="#3f3a24"/>
+              <rect x="12" y="5" width="6" height="38" fill="#3f3a24"/><rect x="24" y="5" width="6" height="38" fill="#3f3a24"/>
+              <rect x="36" y="5" width="6" height="38" fill="#3f3a24"/><rect x="48" y="5" width="6" height="38" fill="#3f3a24"/>
+            </g></g>
+            <circle cx="24" cy="24" r="19" stroke="#3f3a24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg><svg class="fb-lbl" viewBox="-50 -50 100 100" aria-hidden="true"><defs><path id="fbL2" d="M-38.5 0 A38.5 38.5 0 0 1 38.5 0"/></defs><text><textPath href="#fbL2" startOffset="50%" text-anchor="middle">Grating</textPath></text></svg></span>
+          <span class="fb-icon" title="White-noise stimulus"><svg viewBox="0 0 48 48">
+            <defs><clipPath id="fbClipN"><circle cx="24" cy="24" r="19"/></clipPath></defs>
+            <g clip-path="url(#fbClipN)" fill="#3f3a24">
+              <g class="nz nz1"><rect x="30" y="12" width="3" height="3"/><rect x="36" y="3" width="3" height="3"/><rect x="6" y="9" width="3" height="3"/><rect x="33" y="3" width="3" height="3"/><rect x="18" y="3" width="3" height="3"/><rect x="6" y="39" width="3" height="3"/><rect x="39" y="6" width="3" height="3"/><rect x="21" y="6" width="3" height="3"/><rect x="39" y="3" width="3" height="3"/><rect x="9" y="21" width="3" height="3"/><rect x="3" y="36" width="3" height="3"/><rect x="3" y="21" width="3" height="3"/><rect x="3" y="12" width="3" height="3"/><rect x="27" y="39" width="3" height="3"/><rect x="12" y="9" width="3" height="3"/><rect x="27" y="15" width="3" height="3"/><rect x="9" y="18" width="3" height="3"/><rect x="33" y="9" width="3" height="3"/><rect x="6" y="3" width="3" height="3"/><rect x="18" y="45" width="3" height="3"/><rect x="39" y="30" width="3" height="3"/><rect x="42" y="42" width="3" height="3"/><rect x="33" y="27" width="3" height="3"/><rect x="21" y="15" width="3" height="3"/><rect x="21" y="6" width="3" height="3"/><rect x="27" y="45" width="3" height="3"/><rect x="30" y="42" width="3" height="3"/><rect x="27" y="6" width="3" height="3"/><rect x="9" y="39" width="3" height="3"/><rect x="15" y="30" width="3" height="3"/><rect x="12" y="45" width="3" height="3"/><rect x="39" y="3" width="3" height="3"/><rect x="6" y="30" width="3" height="3"/><rect x="30" y="33" width="3" height="3"/><rect x="45" y="42" width="3" height="3"/><rect x="6" y="6" width="3" height="3"/><rect x="24" y="45" width="3" height="3"/><rect x="6" y="3" width="3" height="3"/><rect x="27" y="42" width="3" height="3"/><rect x="27" y="36" width="3" height="3"/><rect x="33" y="0" width="3" height="3"/><rect x="42" y="33" width="3" height="3"/><rect x="15" y="9" width="3" height="3"/><rect x="45" y="3" width="3" height="3"/><rect x="18" y="27" width="3" height="3"/><rect x="12" y="21" width="3" height="3"/></g><g class="nz nz2"><rect x="36" y="36" width="3" height="3"/><rect x="45" y="6" width="3" height="3"/><rect x="15" y="42" width="3" height="3"/><rect x="36" y="24" width="3" height="3"/><rect x="12" y="39" width="3" height="3"/><rect x="24" y="39" width="3" height="3"/><rect x="33" y="36" width="3" height="3"/><rect x="21" y="12" width="3" height="3"/><rect x="6" y="15" width="3" height="3"/><rect x="12" y="21" width="3" height="3"/><rect x="21" y="0" width="3" height="3"/><rect x="45" y="15" width="3" height="3"/><rect x="24" y="27" width="3" height="3"/><rect x="0" y="12" width="3" height="3"/><rect x="39" y="33" width="3" height="3"/><rect x="30" y="12" width="3" height="3"/><rect x="3" y="42" width="3" height="3"/><rect x="36" y="36" width="3" height="3"/><rect x="36" y="36" width="3" height="3"/><rect x="9" y="45" width="3" height="3"/><rect x="36" y="3" width="3" height="3"/><rect x="18" y="6" width="3" height="3"/><rect x="18" y="42" width="3" height="3"/><rect x="15" y="9" width="3" height="3"/><rect x="30" y="3" width="3" height="3"/><rect x="9" y="0" width="3" height="3"/><rect x="12" y="9" width="3" height="3"/><rect x="33" y="0" width="3" height="3"/><rect x="6" y="18" width="3" height="3"/><rect x="36" y="12" width="3" height="3"/><rect x="24" y="33" width="3" height="3"/><rect x="33" y="45" width="3" height="3"/><rect x="9" y="9" width="3" height="3"/><rect x="45" y="42" width="3" height="3"/><rect x="45" y="45" width="3" height="3"/><rect x="27" y="6" width="3" height="3"/><rect x="12" y="9" width="3" height="3"/><rect x="30" y="24" width="3" height="3"/><rect x="45" y="15" width="3" height="3"/><rect x="0" y="18" width="3" height="3"/><rect x="33" y="12" width="3" height="3"/><rect x="0" y="27" width="3" height="3"/><rect x="6" y="24" width="3" height="3"/><rect x="33" y="15" width="3" height="3"/><rect x="33" y="21" width="3" height="3"/><rect x="30" y="21" width="3" height="3"/></g><g class="nz nz3"><rect x="18" y="21" width="3" height="3"/><rect x="36" y="21" width="3" height="3"/><rect x="18" y="45" width="3" height="3"/><rect x="33" y="0" width="3" height="3"/><rect x="0" y="24" width="3" height="3"/><rect x="45" y="24" width="3" height="3"/><rect x="18" y="33" width="3" height="3"/><rect x="42" y="33" width="3" height="3"/><rect x="33" y="6" width="3" height="3"/><rect x="21" y="9" width="3" height="3"/><rect x="21" y="45" width="3" height="3"/><rect x="18" y="30" width="3" height="3"/><rect x="18" y="45" width="3" height="3"/><rect x="0" y="45" width="3" height="3"/><rect x="33" y="6" width="3" height="3"/><rect x="9" y="36" width="3" height="3"/><rect x="18" y="45" width="3" height="3"/><rect x="15" y="39" width="3" height="3"/><rect x="30" y="6" width="3" height="3"/><rect x="36" y="42" width="3" height="3"/><rect x="36" y="6" width="3" height="3"/><rect x="15" y="15" width="3" height="3"/><rect x="12" y="0" width="3" height="3"/><rect x="12" y="42" width="3" height="3"/><rect x="12" y="45" width="3" height="3"/><rect x="33" y="12" width="3" height="3"/><rect x="12" y="0" width="3" height="3"/><rect x="0" y="9" width="3" height="3"/><rect x="12" y="39" width="3" height="3"/><rect x="18" y="18" width="3" height="3"/><rect x="0" y="24" width="3" height="3"/><rect x="18" y="27" width="3" height="3"/><rect x="21" y="30" width="3" height="3"/><rect x="24" y="39" width="3" height="3"/><rect x="12" y="3" width="3" height="3"/><rect x="33" y="42" width="3" height="3"/><rect x="39" y="12" width="3" height="3"/><rect x="12" y="0" width="3" height="3"/><rect x="42" y="15" width="3" height="3"/><rect x="0" y="12" width="3" height="3"/><rect x="15" y="12" width="3" height="3"/><rect x="45" y="9" width="3" height="3"/><rect x="3" y="30" width="3" height="3"/><rect x="45" y="9" width="3" height="3"/><rect x="3" y="21" width="3" height="3"/><rect x="18" y="24" width="3" height="3"/></g>
+            </g>
+            <circle cx="24" cy="24" r="19" stroke="#3f3a24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg><svg class="fb-lbl" viewBox="-50 -50 100 100" aria-hidden="true"><defs><path id="fbL3" d="M-38.5 0 A38.5 38.5 0 0 1 38.5 0"/></defs><text><textPath href="#fbL3" startOffset="50%" text-anchor="middle">Random</textPath></text></svg></span>
+          <span class="fb-icon" title="Neural response"><svg viewBox="0 0 48 48">
+            <polygon class="bolt" points="34,0 27,10 32,10 29,18 39,7 33,7" fill="#bd8d2c"/>
+            <g stroke="#3f3a24" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2">
+              <path d="M15.6 16.5 L10.4 12.6 M20 15 L20 9.4 M24.4 16.5 L29.6 12.6 M14.7 22.3 L9.2 23.8 M25.3 22.3 L30.8 23.8"/>
+              <path d="M10.4 12.6 Q20 19 29.6 12.6 M9.2 23.8 Q15 18.5 10.4 12.6 M30.8 23.8 Q26 18.5 29.6 12.6"/>
+              <circle cx="20" cy="20" r="5"/>
+            </g>
+            <g fill="#3f3a24">
+              <circle cx="20" cy="20" r="1.9"/>
+              <circle cx="10.4" cy="12.6" r="1.7"/><circle cx="20" cy="9.4" r="1.7"/><circle cx="29.6" cy="12.6" r="1.7"/>
+              <circle cx="9.2" cy="23.8" r="1.7"/><circle cx="30.8" cy="23.8" r="1.7"/>
+            </g>
+            <path class="spike" d="M20 25 Q21 30 24 33" stroke="#3f3a24" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"/>
+            <g transform="translate(-2,8) scale(1.06)"><path d="M12 36 q0-6 5.5-6 q2.5-3 6.5-3 t6.5 3 q5.5 0 5.5 6 q0 5-6 5 h-12 q-6 0-6-5z" stroke="#3f3a24" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"/></g>
+          </svg><svg class="fb-lbl" viewBox="-50 -50 100 100" aria-hidden="true"><defs><path id="fbL4" d="M-38.5 0 A38.5 38.5 0 0 1 38.5 0"/></defs><text><textPath href="#fbL4" startOffset="50%" text-anchor="middle">Neural</textPath></text></svg></span>
+          <img class="fb-fly" src="images/home/fly-on-ball-silhouette.png" alt="Drosophila melanogaster">
+        </div>
+        <span class="fb-cap">Drag the ball to roll it &middot; a tethered fly on an air-supported ball</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ RESEARCH / FOUR PILLARS ============ -->
+  <section class="page" id="research">
+    <div class="stagger">
+      <p class="eyebrow">Our Research</p>
+      <h1 style="font-size:clamp(2.2rem,4.5vw,3.4rem);max-width:18ch;">Four pillars of inquiry</h1>
+      <p class="lead" style="margin-top:1.3rem;">Our laboratory is focused on two questions, namely, how do complex neuronal circuits assemble during development and disassemble in disease and how do such circuits mediate the complex computations essential to behavior? By examining the interplay between these questions, we hope to uncover fundamental new insights into the molecular mechanisms and functional consequences of neurodegenerative disease. My lab has developed a new model by which interactions among developing neurons determine the wiring diagram of the brain, and we have defined the structure of one of the fundamental computational units of the visual system, a circuit that measures the movement of objects across your eye. More recent work has uncovered a new molecular mechanism by which genes associated with Parkinson's Disease are linked to the loss of connections between neurons. Our hope is that these latter results will inspire new therapeutic approaches to this disorder.</p>
+    </div>
+
+    <div class="q-grid stagger">
+      <div class="q-card"><b>Assembly</b>How do neuronal circuits wire themselves up during development?</div>
+      <div class="q-card"><b>Maintenance</b>How are the functions of those circuits sustained across adult life?</div>
+      <div class="q-card"><b>Computation</b>How do circuits implement the computations that underlie behavior?</div>
+    </div>
+
+    <div class="pillars">
+      <div class="pillar">
+        <div class="num">01</div>
+        <div>
+          <h3><a class="pillar-link" data-go="energy">Energy production and use in the brain &rarr;</a></h3>
+          <p>By mass, human brains are as energetically expensive as the heart, yet our understanding of how the brain uses energy to compute remains incredibly thin. We ask how energy use maps onto single cells, individual synapses and specific behaviors.</p>
+        </div>
+      </div>
+      <div class="pillar">
+        <div class="num">02</div>
+        <div>
+          <h3><a class="pillar-link" data-go="behavior">Understanding behavior at brain-wide scale &rarr;</a></h3>
+          <p>Fly behavior spans sensorimotor responses, the seemingly voluntary movements of a freely walking animal, and fundamental behaviors like sleep. We ask how complex, dynamic patterns of brain-wide activity emerge, and how they lead to specific behavioral outcomes.</p>
+        </div>
+      </div>
+      <div class="pillar">
+        <div class="num">03</div>
+        <div>
+          <h3><a class="pillar-link" data-go="visual-computation">Linking structure to function in the visual system &rarr;</a></h3>
+          <p>The fly visual system performs many of the same computations as the human brain, and at least one of them, motion processing, uses algorithms very similar to those of vertebrates. We ask how its wiring diagram and the morphology of each cell type implement these computations.</p>
+        </div>
+      </div>
+      <div class="pillar">
+        <div class="num">04</div>
+        <div>
+          <h3><a class="pillar-link" data-go="neurodegeneration">Neurodegeneration &rarr;</a></h3>
+          <p>Our deep understanding of brain function lets us analyze how circuits are affected by neurodegenerative disease and aging, with a focus on genes linked to lipid metabolism and Parkinson’s Disease, and on how the brain responds to environmental stressors.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PEOPLE ============ -->
+  <section class="page" id="people">
+    <div class="stagger">
+      <p class="eyebrow">People</p>
+      <h1 style="font-size:clamp(2.2rem,4.5vw,3.4rem);">Meet the lab</h1>
+      <p class="lead" style="margin-top:1.3rem;">A community of biologists, physicists, and engineers united by a fascination with how brains compute. Tap any card to read more.</p>
+    </div>
+
+    <div class="role-head"><h3>Principal Investigator</h3><span class="line"></span></div>
+    <div class="people-grid" data-group="pi"></div>
+
+    <div class="role-head"><h3>Postdoctoral Fellows</h3><span class="line"></span></div>
+    <div class="people-grid" data-group="postdoc"></div>
+
+    <div class="role-head"><h3>Graduate Students</h3><span class="line"></span></div>
+    <div class="people-grid" data-group="grad"></div>
+
+    <div class="role-head"><h3>Students &amp; Staff</h3><span class="line"></span></div>
+    <div class="people-grid" data-group="staff"></div>
+
+    <a class="alum-link" data-go="alumni">Meet the alumni of the Clandinin Lab &rarr;</a>
+  </section>
+
+  <!-- ============ PILLAR 1: ENERGY (figures: Mann et al. 2021 Nature, Fig 4c + 1b-d + 1a) ============ -->
+  <!-- ✏️ EDIT: text for this pillar lives in the two <p> blocks below. -->
+  <section class="page" id="energy">
+    <div class="stagger">
+      <p class="eyebrow">Pillars of Inquiry &middot; 01</p>
+      <h1 style="font-size:clamp(2.2rem,4.5vw,3.4rem);max-width:22ch;">Energy production and use in the brain</h1>
+    </div>
+    <div class="rsplit">
+      <figure class="rfig rfig-plate"><img src="images/research/mann-2021-fig4c-brain-maps-behavior.webp" alt="Maps of the fly brain seen from three angles, colored red and blue by how strongly each region's neural activity, ATP, or pyruvate signal predicts the fly's movements" loading="lazy"><figcaption>The fly brain seen from three angles, colored by how strongly each region predicts the fly’s movements. Rows show neural activity (top) and two energy signals, ATP (middle) and pyruvate (bottom). From <a href="https://doi.org/10.1038/s41586-021-03497-0" target="_blank" rel="noopener">Mann et al., <em>Nature</em> 2021</a>.</figcaption></figure>
+      <div class="rtext"><p>By mass, human brains are as energetically expensive as the heart, yet while we know well how the heart spends energy, our understanding of how the brain uses energy to compute remains incredibly thin. Our previous work showed that fly brains dynamically modulate energy production at brain-wide scale in coordination with behavior.</p></div>
+    </div>
+    <figure class="rfig rfig-plate rfig-wide"><img src="images/research/mann-2021-fig1bd-activity-metabolism-networks.webp" alt="Three correlation matrices of brain regions, measured with a calcium sensor, a pyruvate sensor and an ATP sensor, showing similar patterns" loading="lazy"><figcaption>Each grid shows how strongly every pair of brain regions rises and falls together, measured with a sensor for neural activity (left), pyruvate (middle) or ATP (right). The three patterns are strikingly similar: the brain’s energy network mirrors its activity network. From <a href="https://doi.org/10.1038/s41586-021-03497-0" target="_blank" rel="noopener">Mann et al., <em>Nature</em> 2021</a>.</figcaption></figure>
+    <div class="rsplit rsplit-rev rsplit-now">
+      <div class="rnow"><span class="rnow-label">Current work</span><p>Current work seeks to understand how energy use maps onto single cells, individual synapses and specific behaviors.</p></div>
+      <figure class="rfig rfig-plate"><img src="images/research/mann-2021-fig1a-imaging-and-metabolism-schematic.webp" alt="Schematic of a fly under a two-photon microscope, its brain, and a neuron's metabolic pathway linking calcium, pyruvate and ATP, with the sensors used to measure each" loading="lazy"><figcaption>Imaging the living fly brain, and the pathways linking neural activity (calcium) to energy production (pyruvate and ATP), each watched with its own genetically encoded sensor. From <a href="https://doi.org/10.1038/s41586-021-03497-0" target="_blank" rel="noopener">Mann et al., <em>Nature</em> 2021</a>.</figcaption></figure>
+    </div>
+  </section>
+
+  <!-- ============ PILLAR 2: BEHAVIOR ============ -->
+  <!-- ✏️ EDIT: text for this pillar lives in the two <p> blocks below. -->
+  <section class="page" id="behavior">
+    <div class="stagger">
+      <p class="eyebrow">Pillars of Inquiry &middot; 02</p>
+      <h1 style="font-size:clamp(2.2rem,4.5vw,3.4rem);max-width:22ch;">Understanding behavior at brain-wide scale</h1>
+    </div>
+    <div class="rsplit">
+      <figure class="rfig"><video class="rvid" muted loop playsinline preload="none" poster="images/research/tethered-fly-walking-poster.jpg" aria-label="A tethered fly walking on an air-supported ball"><source src="videos/tethered-fly-walking.mp4" type="video/mp4"></video></figure>
+      <div class="rtext"><p>Fly behavior is incredibly rich, spanning sensorimotor responses in which specific motor actions are associated with particular stimuli, to the seemingly voluntary movements of a freely walking animal, to fundamental behaviors like sleep. Our previous work has shown how some of these behaviors require the coordinated activity of many neurons and are dependent on the internal state of the animal.</p></div>
+    </div>
+    <div class="rnow"><span class="rnow-label">Current work</span><p>Current work seeks to understand how these complex, dynamic patterns emerge, and how they lead to specific behavioral outcomes.</p></div>
+  </section>
+
+  <!-- ============ PILLAR 3: STRUCTURE & FUNCTION (figures: Currier & Clandinin 2025 Cell, Fig 1A + 4A) ============ -->
+  <!-- ✏️ EDIT: text for this pillar lives in the two <p> blocks below. -->
+  <section class="page" id="visual-computation">
+    <div class="stagger">
+      <p class="eyebrow">Pillars of Inquiry &middot; 03</p>
+      <h1 style="font-size:clamp(2.2rem,4.5vw,3.4rem);max-width:22ch;">Linking structure to function in the visual system</h1>
+    </div>
+    <div class="rsplit">
+      <figure class="rfig rfig-plate"><img src="images/research/currier-2025-fig1a-cell-type-families.webp" alt="Diagram of the fly optic lobe showing the morphological families of visual neuron types: lamina-connected, columnar, and wide-field interneurons" loading="lazy"><figcaption>Cell-type morphological families of the fly optic lobe. From <a href="https://doi.org/10.1016/j.cell.2025.05.007" target="_blank" rel="noopener">Currier &amp; Clandinin, <em>Cell</em> 2025</a>.</figcaption></figure>
+      <div class="rtext"><p>The visual system of the fly is capable of many of the same computations as those found in the human brain, and past work showed that at least one of these computations, motion processing, uses algorithms that are very similar to those used in vertebrates.</p></div>
+    </div>
+    <figure class="rfig rfig-plate rfig-wide"><img src="images/research/currier-2025-fig4a-arbor-vs-receptive-field.webp" alt="Four optic lobe cell types (L1, Mi2, Pm5, Dm13) shown with their arbor shapes beside their measured spatial receptive fields" loading="lazy"><figcaption>Neurons with very different shapes, from single-column L1 to wide-field Dm13, alongside the receptive fields measured from them. Arbor size turns out to be a poor predictor of receptive field size. From <a href="https://doi.org/10.1016/j.cell.2025.05.007" target="_blank" rel="noopener">Currier &amp; Clandinin, <em>Cell</em> 2025</a>.</figcaption></figure>
+    <div class="rnow"><span class="rnow-label">Current work</span><p>Current work focuses on understanding how the complex wiring diagram and rich morphological diversity of each cell type implement these computations using a variety of sensors.</p></div>
+  </section>
+
+  <!-- ============ PILLAR 4: NEURODEGENERATION (figures: Theisen et al. 2026 Neuron, Fig 7 + 6A) ============ -->
+  <!-- ✏️ EDIT: text for this pillar lives in the two <p> blocks below. -->
+  <section class="page" id="neurodegeneration">
+    <div class="stagger">
+      <p class="eyebrow">Pillars of Inquiry &middot; 04</p>
+      <h1 style="font-size:clamp(2.2rem,4.5vw,3.4rem);max-width:22ch;">Neurodegeneration</h1>
+    </div>
+    <div class="rsplit">
+      <figure class="rfig rfig-plate"><img src="images/research/theisen-2026-fig7-lysosomal-catabolism.webp" alt="Cartoon of a neuron (green) and a glial cell (magenta): the glial cell engulfs neuronal membrane lipids and breaks them down in its lysosome using enzymes including Gba1b, producing the lipid CPE that prevents p62 protein aggregates" loading="lazy"><figcaption>Glia engulf neuronal membranes and recycle their lipids through the lysosome, using enzymes that include Gba1b, the fly counterpart of the Parkinson’s risk gene <em>GBA</em>. From <a href="https://doi.org/10.1016/j.neuron.2026.02.006" target="_blank" rel="noopener">Theisen et al., <em>Neuron</em> 2026</a>.</figcaption></figure>
+      <div class="rtext"><p>Our deep understanding of brain function puts us in a powerful position to analyze how circuit function is affected by neurodegenerative disease and aging. Of particular interest are genes associated with lipid metabolism and Parkinson’s Disease, focusing on how the functions of these genes might be coordinated across cell types and circuits to preserve brain health.</p></div>
+    </div>
+    <div class="rsplit rsplit-rev rsplit-now">
+      <div class="rnow"><span class="rnow-label">Current work</span><p>Current work focuses on exploring how the brain responds to environmental stressors, with the goal of developing new kinds of genetic screens that can identify the critical processes that these environmental factors perturb. Our hope is that these studies will inform the development of new therapeutic strategies.</p></div>
+      <figure class="rfig rfig-plate"><img src="images/research/theisen-2026-fig6a-lipid-recycling-model.webp" alt="Model comparing normal lipid transfer from neurons to glia with lysosomal mutants, in which lipids accumulate in glial lysosomes and p62 protein aggregates form" loading="lazy"><figcaption>When lysosomal recycling fails, neuronal lipids pile up inside glial lysosomes and protein aggregates (p62) accumulate. From <a href="https://doi.org/10.1016/j.neuron.2026.02.006" target="_blank" rel="noopener">Theisen et al., <em>Neuron</em> 2026</a>.</figcaption></figure>
+    </div>
+  </section>
+
+  <!-- ============ ALUMNI ============ -->
+  <section class="page" id="alumni">
+    <div class="stagger">
+      <p class="eyebrow">People</p>
+      <h1 style="font-size:clamp(2.2rem,4.5vw,3.4rem);">Lab Alumni</h1>
+    </div>
+    <ul class="alum-list">
+      <li>Ashley Smart PhD</li>
+      <li>Lianna Wat PhD</li>
+      <li>Alex Yukun Hao PhD</li>
+      <li>Michelle Pang</li>
+      <li>Janina Troper</li>
+      <li>Ilana Zucker-Scharff</li>
+      <li>John Vaughen PhD, <a href="https://www.membrainlab.com/" target="_blank" rel="noopener">Sandler Faculty Fellow</a>, UCSF</li>
+      <li>Bella Brezovec PhD, <a href="https://murthylab.princeton.edu/members" target="_blank" rel="noopener">Postdoctoral Fellow</a>, Princeton</li>
+      <li>Avery Krieger PhD</li>
+      <li>Max Turner PhD, <a href="https://www.albany.edu/biology/faculty/maxwell-h-turner" target="_blank" rel="noopener">Assistant Professor of Biological Sciences</a>, University at Albany</li>
+      <li>Arnaldo Carreira-Rosario PhD, <a href="https://medschool.duke.edu/profile/arnaldo-carreira-rosario" target="_blank" rel="noopener">Assistant Professor of Biology</a>, Duke University</li>
+      <li>Andrew Berger, Graduate Student, University of Colorado Boulder</li>
+      <li>Niyathi Annamaneni, Graduate Student, Yale University</li>
+      <li>Ryan Lee, Undergraduate Student, Brown University</li>
+      <li>Brianna Garcia</li>
+      <li>Kevin Mann PhD, Applications Scientist, Bruker</li>
+      <li>Ina Anreiter PhD, <a href="https://eeb.utoronto.ca/profile/anreiter-ina/" target="_blank" rel="noopener">Assistant Professor, University of Toronto</a></li>
+      <li>Ryan York PhD, Scientist, Arcadia Science</li>
+      <li>Mohammed Osman, Software/Data Engineer, Harvard Medical School</li>
+      <li>Sharon Su, Graduate Student, Columbia</li>
+      <li>Jesse Isaacman-Beck, Science &amp; Technology Policy Fellow, AAAS</li>
+      <li>Kristine Paik, Medical Student, Weill Cornell</li>
+      <li>Leland Owens</li>
+      <li>Theresa Logan-Garbisch, Graduate Student, Stanford University</li>
+      <li>David Zimmerman, Graduate Student, Harvard University</li>
+      <li>Sabera Talukder, Software Engineer and Experimentalist, Chan Zuckerberg Biohub</li>
+      <li>Helen H. Yang PhD, Postdoctoral Fellow, Harvard University</li>
+      <li>Allan Borrayo, Administrative Associate, Stanford University</li>
+      <li>Jonathan C.S. Leong MD PhD, Resident, Harvard University</li>
+      <li>Marjorie Xie, Graduate Student, Columbia</li>
+      <li>Irving Wang PhD, Scientist, Counsyl</li>
+      <li>Yvette Fisher PhD, <a href="https://www.fisherlab.science/" target="_blank" rel="noopener">Assistant Professor, UC Berkeley</a></li>
+      <li>Erin L. Barnhart PhD, <a href="https://barnhartlab.org/blog/" target="_blank" rel="noopener">Assistant Professor, Columbia</a></li>
+      <li>Jennifer J. Esch PhD, Analyst, Boston Consulting Group</li>
+      <li>Xiaojing Gao PhD, Postdoctoral Fellow, Caltech</li>
+      <li>Eugene Song, Masters Program in Computer Science, UC Berkeley</li>
+      <li>Yen Chin Chang, Doctoral Student, Academica Sinica, Taiwan</li>
+      <li>Jessica Tsai MD PhD, Resident Physician in Pediatrics at Boston Children's Hospital</li>
+      <li>Marion Silies PhD, Group Leader, European Neurosciences Institute, Göttingen</li>
+      <li>Tina Schwabe PhD, Scientist, Neurogenetic and Cell Biology Lead at Alector</li>
+      <li>Pat Graves, Lab Manager, OHSU</li>
+      <li>Sheetal Bhalerao PhD, Technical Assistant, IMBA</li>
+      <li>Daryl Gohl PhD, Research and Development Lead, University of Minnesota Genetics Center</li>
+      <li>Limor Freifeld PhD, Postdoctoral Fellow, MIT</li>
+      <li>Mathias Wernet PhD, Group Leader, University of Berlin</li>
+      <li>Saskia E.J. de Vries PhD, Scientist II, Allen Institute for Brain Science</li>
+      <li>Damon A. Clark PhD, <a href="https://clarklab.yale.edu/" target="_blank" rel="noopener">Assistant Professor, Yale University</a></li>
+      <li>Jennifer Hwa PhD, Postdoc, UCSF</li>
+      <li>Martha Klovstad PhD, Research Associate at the Cardiovascular Resource Group and Editor at Science Editors Network</li>
+      <li>Kwang-Min Choe PhD, Assistant Professor at Yonsei University, Korea</li>
+      <li>Joshua Mast PhD, Research Scientist, Mission Bio.</li>
+      <li>Pei-Ling Chen MD/PhD, Oncology Pathology Fellow, MD Anderson</li>
+      <li>Alex Katsov PhD, Postdoctoral Fellow, Rockefeller University</li>
+      <li>Saurabh Prakash MD/PhD, Private Practice</li>
+      <li>Mariel Velez MD/PhD, Epilepsy Fellowship, Stanford University</li>
+      <li>Allison Komiyama PhD, Private Regulatory Consultant</li>
+      <li>Ali Bright</li>
+      <li>Katharine M. H. Tomalty, UCDavis DVM/PhD</li>
+      <li>Teresa Wu, Medical Student, Stanford University</li>
+      <li>Helen Mclendon, Graduate Student, UCSF</li>
+      <li>Kelsey Clark, Assistant Professor, Montana State University</li>
+      <li>Francisco Luongo, Graduate Student, UCSF</li>
+      <li>Aaron Rudin, Medical School, UWash</li>
+    </ul>
+  </section>
+
+  <!-- ============ TOOLS ============ -->
+  <section class="page" id="tools">
+    <div class="stagger">
+      <p class="eyebrow">Open-Source Tools</p>
+      <h1 style="font-size:clamp(2.2rem,4.5vw,3.4rem);">Tools we build &amp; share</h1>
+      <p class="lead" style="margin-top:1.3rem;">Software developed in the lab and released openly for the neuroscience community. Hover over (or tap) any tool to see what it does and the work behind it.</p>
+    </div>
+    <div class="tool-hl">
+      <div class="tool-hl-list" id="toolNav"></div>
+      <div class="tool-hl-detail" id="toolDetail"></div>
+    </div>
+    <div class="tool-insite">
+      <p class="eyebrow">Fly stocks</p>
+      <h3>InSITE lines</h3>
+      <p>The lab developed InSITE (Integrase Swappable In vivo Targeting Element), a collection of GAL4 enhancer-trap lines in which GAL4 can be swapped for other transcriptional regulators such as lexA or QF through simple genetic crosses (<a href="https://doi.org/10.1038/nmeth.1561" target="_blank" rel="noopener">Gohl et al., 2011</a>). The lines are available from the Bloomington Drosophila Stock Center.</p>
+      <div class="rlinks">
+        <a href="https://bdsc.indiana.edu/stocks/gal4/insite.html" target="_blank" rel="noopener">InSITE GAL4 insertions at Bloomington &nearr;</a>
+        <a href="https://bdsc.indiana.edu/" target="_blank" rel="noopener">Search &amp; order lines from Bloomington &nearr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PUBLICATIONS ============ -->
+  <section class="page" id="publications">
+    <div class="stagger">
+      <p class="eyebrow">Publications</p>
+      <h1 style="font-size:clamp(2.2rem,4.5vw,3.4rem);">Publications</h1>
+      <p class="lead" style="margin-top:1.3rem;">Browse the lab's work by year, color-coded by topic. Search by author, title, or journal, filter by topic, and click any entry to read the paper.</p>
+    </div>
+    <div class="pub-search-row">
+      <label class="pub-search"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg><input id="pubSearch" type="search" placeholder="Search by author, title, journal…" aria-label="Search publications" autocomplete="off"></label>
+      <span class="pub-count" id="pubCount" aria-live="polite"></span>
+    </div>
+    <div class="pub-filters" id="pubFilters"></div>
+    <ul class="pub-list" id="pubList"></ul>
+  </section>
+
+  <!-- ============ OUTREACH ============ -->
+  <section class="page" id="outreach">
+    <div class="stagger">
+      <p class="eyebrow">Community &amp; Outreach</p>
+      <h1 style="font-size:clamp(2.2rem,4.5vw,3.4rem);">Outreach</h1>
+      <p class="lead" style="margin-top:1.3rem;">Beyond the bench, the lab helps run programs that build a more open, candid, and supportive scientific community.</p>
+    </div>
+
+    <div class="tools" id="outreachList"></div>
+  </section>
+
+  <!-- ============ JOIN ============ -->
+  <section class="page" id="join">
+    <div class="stagger">
+      <p class="eyebrow">Join Us</p>
+      <h1 style="font-size:clamp(2.2rem,4.5vw,3.4rem);">Come work with us</h1>
+      <p class="lead" style="margin-top:1.3rem;">We are always looking for curious, collaborative people who want to understand how circuits compute. We value rigor, creativity, kindness, and a good pun. Below are the main ways to get involved.</p>
+    </div>
+
+    <div class="join-grid">
+      <div class="join-card">
+        <h3>Prospective Graduate Students</h3>
+        <p>Students join the lab through Stanford's graduate programs in Neurosciences and related departments. If our work excites you, apply to the relevant PhD program and mention your interest in the lab in your application. Current Stanford students are warmly welcome to reach out about rotations.</p>
+      </div>
+      <div class="join-card">
+        <h3>Prospective Postdocs</h3>
+        <p>We welcome inquiries from postdoctoral candidates with backgrounds in neuroscience, genetics, physics, engineering, or computation. Please email Tom a brief description of your research interests, a CV, and the names of two or three references.</p>
+      </div>
+      <div class="join-card">
+        <h3>Undergraduates &amp; Co-Terms</h3>
+        <p>Motivated Stanford undergraduates and co-term students can gain hands-on research experience in the lab. Reach out describing your interests and availability, and we'll talk about projects that might be a good fit.</p>
+      </div>
+    </div>
+
+    <div class="join-banner">
+      <div>
+        <h3>Interested? Let's talk.</h3>
+        <p>Send a short note about what draws you to the lab and what you'd like to explore. We read every message.</p>
+      </div>
+      <a class="btn" href="mailto:trc@stanford.edu">Email the lab</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="foot-inner">
+    <div>© <span id="yr"></span> Clandinin Lab · Department of Neurobiology, Stanford University</div>
+    <div>
+      <a href="https://github.com/ClandininLab" target="_blank" rel="noopener">GitHub</a> ·
+      <a href="https://profiles.stanford.edu/thomas-clandinin" target="_blank" rel="noopener">Stanford Profiles</a> ·
+      <a href="mailto:trc@stanford.edu">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<div class="egg game-overlay" id="gameOverlay" hidden role="dialog" aria-label="Eclosion game">
+  <div class="egg-box game-box">
+    <div class="game-bar"><span class="game-title"><em>Eclosion</em> &middot; Publish or Stay in Grad School Forever</span>
+      <a class="game-newtab" id="gameNewTab" target="_blank" rel="noopener">Open in new tab &nearr;</a>
+      <button class="egg-close game-close" id="gameClose" aria-label="Close game">&times;</button></div>
+    <iframe id="gameFrame" title="Eclosion" allow="autoplay; fullscreen" referrerpolicy="no-referrer"></iframe>
+  </div>
+</div>
+<!-- Data files (edit these to update people & publications) -->
+<script src="data/people.js"></script>
+<script src="data/publications.js"></script>
+<!-- Site behavior -->
+<script src="js/main.js"></script>
+</body>
+</html>
