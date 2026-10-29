@@ -109,34 +109,6 @@ const tools=[
   sketch:`<img src="images/tools/isaacman-beck-2020-sparc-fig1.webp" alt="SPARC design schematic and fly optic lobes with T4/T5 neurons labeled densely, at intermediate density, and sparsely, with a plot of the percentage of labeled cells" loading="lazy" style="width:100%;display:block;border-radius:8px;background:#fff;"/>
     <div class="sketch-labels"><span>One genetic switch, three settings</span><span>Dense → intermediate → sparse labeling</span></div>
     <div class="sketch-attr">From <a href="https://doi.org/10.1101/788679" target="_blank" rel="noopener">Isaacman-Beck et al., bioRxiv 2019</a>, Fig. 1 (<a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">CC BY-NC-ND 4.0</a>); published in <a href="https://www.nature.com/articles/s41593-020-0668-9" target="_blank" rel="noopener"><em>Nature Neuroscience</em> 2020</a></div>`},
- {icon:ic(`<circle cx="5" cy="19" r="1.6" fill="currentColor" stroke="none"/><path d="M5 13.5 a5.5 5.5 0 0 1 5.5 5.5"/><path d="M5 8.5 a10.5 10.5 0 0 1 10.5 10.5"/><path d="M5 3.5 a15.5 15.5 0 0 1 15.5 15.5"/>`),name:'stimpack',tagline:'Precise, flexible stimulus delivery for neuroscience experiments',
-  body:"stimpack is the lab's modern framework for generating and delivering precisely-timed sensory stimuli during experiments. It coordinates visual displays and other devices from a single experiment description, so the same protocol can run reproducibly across rigs. It's the successor to <b>flystim</b> and underpins much of the lab's behavioral and imaging work.",
-  link:'https://github.com/ClandininLab/stimpack',
-  sketch:`<svg viewBox="0 0 360 220" width="100%">${grad()}
-    <rect x="18" y="80" width="92" height="56" rx="8" fill="#4d5727"/>
-    <text x="64" y="104" text-anchor="middle" font-size="11" fill="#f6f2e8" font-family="Source Serif 4">protocol</text>
-    <text x="64" y="120" text-anchor="middle" font-size="9" fill="#dcd2b6" font-family="Spline Sans">timing · params</text>
-    <path d="M112 108 H156" stroke="#bd8d2c" stroke-width="2.5" marker-end="url(#ar)"/>
-    <circle cx="200" cy="108" r="34" fill="none" stroke="#21211d" stroke-width="2"/>
-    <circle cx="200" cy="108" r="34" fill="#e7ddc6" opacity=".5"/>
-    <path d="M170 108 a30 30 0 0 1 60 0" stroke="#6f7d3a" stroke-width="6" fill="none"/>
-    <text x="200" y="160" text-anchor="middle" font-size="10" fill="#21211d" font-family="Spline Sans">wrap-around display</text>
-    <path d="M236 108 H276" stroke="#bd8d2c" stroke-width="2.5" marker-end="url(#ar)"/>
-    ${fly(312,108)}
-    <text x="312" y="160" text-anchor="middle" font-size="10" fill="#21211d" font-family="Spline Sans">tethered fly</text>
-  </svg>`},
- {icon:ic(`<rect x="3" y="5" width="18" height="14" rx="2"/><line x1="8" y1="6.5" x2="8" y2="17.5"/><line x1="12" y1="6.5" x2="12" y2="17.5"/><line x1="16" y1="6.5" x2="16" y2="17.5"/>`),name:'flystim',tagline:'Visual stimulus generator for neuroscience experiments',
-  body:"flystim is the lab's original visual-stimulus engine: it renders controlled visual worlds — moving edges, gratings, polarized-light patterns, and richer scenes — onto screens surrounding a fly so that responses can be measured behaviorally or with imaging. Much of its functionality now lives within stimpack.",
-  link:'https://github.com/ClandininLab/flystim',
-  sketch:`<svg viewBox="0 0 360 220" width="100%">${grad()}
-    <text x="180" y="22" text-anchor="middle" font-size="11" fill="#4d5727" font-family="Spline Sans">rendered visual world</text>
-    <rect x="40" y="40" width="280" height="92" rx="10" fill="#e7ddc6" stroke="#21211d"/>
-    ${[0,1,2,3,4,5].map(i=>`<rect x="${52+i*44}" y="48" width="22" height="76" fill="${i%2?'#6f7d3a':'#dcd2b6'}"/>`).join('')}
-    <path d="M180 140 V164" stroke="#bd8d2c" stroke-width="2.5" marker-end="url(#ar)"/>
-    ${fly(180,188)}
-    <path d="M150 188 q-12 -10 0 -20" stroke="#b23a2e" stroke-width="2" fill="none"/>
-    <path d="M210 188 q12 -10 0 -20" stroke="#b23a2e" stroke-width="2" fill="none"/>
-  </svg>`},
  {icon:ic(`<path d="M12 3 L4 8 L12 13 L20 8 Z"/><path d="M4 12 L12 17 L20 12"/><path d="M4 16 L12 21 L20 16"/>`),name:'brainsss',tagline:'Preprocessing of volumetric neural data',
   body:"brainsss is a pipeline for preprocessing large volumetric imaging datasets on Stanford's Sherlock cluster — handling motion correction, z-scoring, and other clean-up steps that turn raw microscope volumes into analysis-ready data, with distributed execution for big datasets.",
   link:'https://github.com/ClandininLab/brainsss',
@@ -144,35 +116,18 @@ const tools=[
     <img src="images/tools/brezovec-2024-fig1e-brain-map.webp" alt="Whole fly brain viewed in three planes, colored by how each region's activity tracks forward and turning velocity" loading="lazy" style="width:100%;display:block;border-radius:8px;margin-top:.6rem;"/>
     <div class="sketch-labels"><span>Raw scans → common brain atlas</span><span>Brain-wide map of walking signals</span></div>
     <div class="sketch-attr">From <a href="https://doi.org/10.1016/j.cub.2023.12.063" target="_blank" rel="noopener">Brezovec et al., <em>Current Biology</em> 2024</a>, Fig. 1A, E</div>`},
+ {icon:ic(`<circle cx="5" cy="19" r="1.6" fill="currentColor" stroke="none"/><path d="M5 13.5 a5.5 5.5 0 0 1 5.5 5.5"/><path d="M5 8.5 a10.5 10.5 0 0 1 10.5 10.5"/><path d="M5 3.5 a15.5 15.5 0 0 1 15.5 15.5"/>`),name:'stimpack',tagline:'Precise, flexible stimulus delivery for neuroscience experiments',
+  body:"stimpack is the lab's modern framework for generating and delivering precisely-timed sensory stimuli during experiments. It coordinates visual displays and other devices from a single experiment description, so the same protocol can run reproducibly across rigs. It's the successor to <b>flystim</b> and underpins much of the lab's behavioral and imaging work.",
+  link:'https://github.com/ClandininLab/stimpack'},
+ {icon:ic(`<rect x="3" y="5" width="18" height="14" rx="2"/><line x1="8" y1="6.5" x2="8" y2="17.5"/><line x1="12" y1="6.5" x2="12" y2="17.5"/><line x1="16" y1="6.5" x2="16" y2="17.5"/>`),name:'flystim',tagline:'Visual stimulus generator for neuroscience experiments',
+  body:"flystim is the lab's original visual-stimulus engine: it renders controlled visual worlds — moving edges, gratings, polarized-light patterns, and richer scenes — onto screens surrounding a fly so that responses can be measured behaviorally or with imaging. Much of its functionality now lives within stimpack.",
+  link:'https://github.com/ClandininLab/flystim'},
  {icon:ic(`<path d="M3 16.5 V15 a9 9 0 0 1 18 0 v1.5"/><line x1="2.5" y1="16.5" x2="21.5" y2="16.5"/><line x1="8" y1="16.5" x2="8" y2="11"/><line x1="12" y1="16.5" x2="12" y2="9"/><line x1="16" y1="16.5" x2="16" y2="11"/><line x1="3.5" y1="20.5" x2="20.5" y2="20.5"/>`),name:'brukerbridge',tagline:'Automated handoff from the two-photon microscope',
   body:"brukerbridge automates moving and converting data off Bruker two-photon microscopes — transferring raw acquisitions into the lab's storage and converting them into standard formats so downstream pipelines like brainsss and BIFROST can pick them up without manual shuffling.",
-  link:'https://github.com/ClandininLab/brukerbridge',
-  sketch:`<svg viewBox="0 0 360 220" width="100%">${grad()}
-    <rect x="20" y="84" width="80" height="62" rx="8" fill="#e7ddc6" stroke="#21211d"/>
-    <circle cx="60" cy="108" r="14" fill="none" stroke="#2f5d59" stroke-width="3"/>
-    <rect x="54" y="120" width="12" height="20" fill="#6f7d3a"/>
-    <text x="60" y="170" text-anchor="middle" font-size="10" fill="#21211d" font-family="Spline Sans">2-photon scope</text>
-    <path d="M104 115 H150" stroke="#bd8d2c" stroke-width="2.5" marker-end="url(#ar)"/>
-    <rect x="150" y="90" width="76" height="50" rx="8" fill="#4d5727"/>
-    <text x="188" y="112" text-anchor="middle" font-size="10" fill="#f6f2e8" font-family="Spline Sans">transfer</text>
-    <text x="188" y="126" text-anchor="middle" font-size="10" fill="#f6f2e8" font-family="Spline Sans">+ convert</text>
-    <path d="M228 115 H274" stroke="#bd8d2c" stroke-width="2.5" marker-end="url(#ar)"/>
-    <path d="M300 90 h34 v50 h-34 z M300 90 a17 8 0 0 0 34 0" fill="#e7ddc6" stroke="#21211d"/>
-    <text x="317" y="170" text-anchor="middle" font-size="10" fill="#21211d" font-family="Spline Sans">storage + pipeline</text>
-  </svg>`},
+  link:'https://github.com/ClandininLab/brukerbridge'},
  {icon:ic(`<path d="M4 4 V20 H20"/><polyline points="7 15 11 10 14 13 19 6"/>`),name:'visanalysis',tagline:'Analysis of imaging experiments',
   body:"visanalysis provides a common framework for analyzing imaging experiments — organizing acquisitions, extracting regions of interest, and relating neural responses to the delivered stimuli, so results stay consistent across people and projects.",
-  link:'https://github.com/ClandininLab/visanalysis',
-  sketch:`<svg viewBox="0 0 360 220" width="100%">${grad()}
-    <rect x="24" y="74" width="96" height="84" rx="8" fill="#e7ddc6" stroke="#21211d"/>
-    ${[0,1,2].map(r=>[0,1,2].map(c=>`<circle cx="${44+c*24}" cy="${94+r*24}" r="7" fill="${(r+c)%2?'#6f7d3a':'#dcd2b6'}" stroke="#21211d"/>`).join('')).join('')}
-    <text x="72" y="176" text-anchor="middle" font-size="10" fill="#21211d" font-family="Spline Sans">ROIs</text>
-    <path d="M124 116 H162" stroke="#bd8d2c" stroke-width="2.5" marker-end="url(#ar)"/>
-    <rect x="164" y="78" width="174" height="76" rx="8" fill="#e7ddc6" stroke="#21211d"/>
-    <line x1="176" y1="142" x2="328" y2="142" stroke="#21211d"/>
-    <path d="M176 138 q18 -44 40 -8 q14 22 34 -20 q16 30 40 4 q14 -12 38 -16" stroke="#b23a2e" stroke-width="2.4" fill="none"/>
-    <text x="251" y="172" text-anchor="middle" font-size="10" fill="#21211d" font-family="Spline Sans">response vs. stimulus</text>
-  </svg>`}
+  link:'https://github.com/ClandininLab/visanalysis'}
 ];
 
 function grad(){return `<defs>
@@ -198,6 +153,10 @@ const toolCats=[
   {label:'Computational & Software', note:'registration, preprocessing & analysis', color:'#3b6ea5', names:['BIFROST','brainsss','brukerbridge','visanalysis']},
   {label:'Stimulus Delivery', note:'visual stimulation', color:'#b23a2e', names:['stimpack','flystim']},
 ];
+/* Hand-drawn looping arrow that points from the text to the figure (drawn in the tool's category color). */
+const LOOP_ARROW=`<svg class="tp-arrow" viewBox="0 0 330 140" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M10 128 C 62 112, 126 88, 140 58 C 152 32, 130 12, 109 23 C 88 35, 95 72, 131 86 C 192 110, 262 70, 318 28"/>
+  <path d="M318 28 L 284 33 M318 28 L 303 58"/></svg>`;
 function toolPanel(t){
   const enables=t.enables?`<p class="enables-head">What this enables</p><ul class="enables">${t.enables.map(e=>`<li>${e}</li>`).join('')}</ul>`:'';
   const link=t.link?`<a class="tool-link" href="${t.link}" target="_blank" rel="noopener">${t.linkLabel||'View on GitHub \u2197'}</a>`:'';
@@ -205,26 +164,28 @@ function toolPanel(t){
   el.className='tpanel'; el.dataset.name=t.name;
   el.innerHTML=`
     <div class="tpanel-head"><span class="tpanel-ic">${t.icon}</span><div><h3>${t.name}</h3><span class="tpanel-tag">${t.tagline}</span></div></div>
-    <div class="sketch">${t.sketch}</div>
-    <div class="sketch-cap">What ${t.name} does</div>
-    <p>${t.body}</p>
-    ${enables}${link}`;
+    <div class="tp-text${enables?'':' tp-text-solo'}"><div class="tp-body"><p>${t.body}</p>${link}</div>${enables?`<div class="tp-enables">${enables}</div>`:''}</div>
+    ${t.sketch?`<div class="tp-show">${LOOP_ARROW}<div class="sketch">${t.sketch}</div></div>`:''}
+    ${t.sketch?'<svg class="tp-swoop" aria-hidden="true"><path class="tp-swoop-line"/><path class="tp-swoop-head"/></svg>':''}`;
   return el;
 }
 const tnavItems=[];
 toolCats.forEach(cat=>{
+  const group=document.createElement('div');
+  group.className='tnav-group'; group.style.setProperty('--cat',cat.color);
   const head=document.createElement('div');
   head.className='tnav-cat'; head.style.setProperty('--cat',cat.color);
   head.innerHTML=`<span>${cat.label}</span>${cat.note?`<span class="tnav-note">${cat.note}</span>`:''}`;
-  navEl.appendChild(head);
+  group.appendChild(head);
   cat.names.forEach(nm=>{
     const t=tools.find(x=>x.name===nm); if(!t) return;
     const btn=document.createElement('button');
     btn.className='tnav-item'; btn.type='button'; btn.dataset.name=t.name; btn.style.setProperty('--cat',cat.color);
     btn.innerHTML=`<span class="tnav-name">${t.name}</span><span class="tnav-tag">${t.tagline}</span>`;
-    navEl.appendChild(btn); tnavItems.push(btn);
+    group.appendChild(btn); tnavItems.push(btn);
     const pan=toolPanel(t); pan.style.setProperty('--cat',cat.color); detEl.appendChild(pan);
   });
+  navEl.appendChild(group);
 });
 const tpanels=[...detEl.querySelectorAll('.tpanel')];
 /* On phones/narrow screens the list becomes an accordion: the open tool's
@@ -244,9 +205,9 @@ function activateTool(name){
   activeToolName=name;
   tnavItems.forEach(b=>{const on=b.dataset.name===name; b.classList.toggle('active',on); b.setAttribute('aria-expanded',on);});
   tpanels.forEach(pn=>pn.classList.toggle('active', pn.dataset.name===name));
+  requestAnimationFrame(()=>tpanels.forEach(drawSwoop));
 }
 tnavItems.forEach(b=>{
-  b.addEventListener('mouseenter',()=>{ if(!narrowTools.matches) activateTool(b.dataset.name); });
   b.addEventListener('focus',()=>{ if(!narrowTools.matches) activateTool(b.dataset.name); });
   b.addEventListener('click',()=>{
     if(narrowTools.matches && activeToolName===b.dataset.name){ // tap again to close
@@ -257,6 +218,38 @@ tnavItems.forEach(b=>{
     if(narrowTools.matches) b.scrollIntoView({behavior:'smooth',block:'start'});
   });
 });
+/* Hand-drawn swoop from the tool's title to its figure (wide screens only).
+   It is measured and redrawn whenever a tool opens or the layout changes. */
+function drawSwoop(pn){
+  if(!pn||!pn.classList.contains('active')) return;
+  const svg=pn.querySelector('.tp-swoop'), h3=pn.querySelector('.tpanel-head h3'), fig=pn.querySelector('.tp-show .sketch');
+  if(!svg||!h3||!fig) return;
+  if(narrowTools.matches||!pn.offsetParent){ svg.style.display='none'; return; }
+  svg.style.display='';
+  const rg=document.createRange(); rg.selectNodeContents(h3);
+  const P=pn.getBoundingClientRect(), T=rg.getBoundingClientRect(), F=fig.getBoundingClientRect();
+  if(!F.width) return;
+  svg.setAttribute('width',P.width); svg.setAttribute('height',P.height);
+  const x0=T.right-P.left+18, y0=T.top-P.top+T.height*0.55;                    // just right of the title
+  const ex=F.left-P.left+F.width*0.8, ey=F.top-P.top-10;                         // landing on the figure
+  const cx=x0+64, cy=y0+2;                                                       // the little loop
+  const d=`M ${x0} ${y0+4}
+    C ${x0+26} ${y0+10}, ${cx+26} ${cy+14}, ${cx+24} ${cy-8}
+    C ${cx+22} ${cy-28}, ${cx-18} ${cy-28}, ${cx-15} ${cy-6}
+    C ${cx-12} ${cy+20}, ${cx+70} ${cy+16}, ${cx+150} ${y0-2}
+    C ${ex+10} ${y0-24}, ${ex+70} ${y0+60}, ${ex+48} ${(y0+ey)/2}
+    S ${ex+8} ${ey-60}, ${ex} ${ey}`;
+  svg.querySelector('.tp-swoop-line').setAttribute('d',d);
+  // arrowhead along the final direction (from the last control point toward the tip)
+  const dx=ex-(ex+8), dy=ey-(ey-60), L=Math.hypot(dx,dy), ux=dx/L, uy=dy/L, s=18, a=0.5;
+  const hx=(c,s2)=>ex-s*(ux*Math.cos(a)-s2*uy*Math.sin(a)), hy=(c,s2)=>ey-s*(uy*Math.cos(a)+s2*ux*Math.sin(a));
+  svg.querySelector('.tp-swoop-head').setAttribute('d',`M ${hx(0,1)} ${hy(0,1)} L ${ex} ${ey} L ${hx(0,-1)} ${hy(0,-1)}`);
+}
+const redrawSwoop=()=>tpanels.forEach(drawSwoop);
+if('ResizeObserver' in window) new ResizeObserver(redrawSwoop).observe(detEl);
+addEventListener('resize',redrawSwoop);
+detEl.querySelectorAll('img').forEach(im=>im.addEventListener('load',redrawSwoop));
+if(document.fonts&&document.fonts.ready) document.fonts.ready.then(redrawSwoop);
 placeToolPanels();
 (narrowTools.addEventListener?narrowTools.addEventListener('change',placeToolPanels):narrowTools.addListener(placeToolPanels));
 if(tnavItems[0]) activateTool(tnavItems[0].dataset.name);
