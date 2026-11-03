@@ -724,3 +724,10 @@
   .hero .lead{max-width:62ch;}
   .p-hero-text>p:last-child{max-width:none;}
   .tool-insite p{max-width:none;}
+  /* Join cards: a single "Learn more" button */
+  .join-links{border-top:0;padding-top:0;margin-top:1.4rem;}
+  .join-btn{font-size:.82rem;padding:.6rem 1.25rem;background:var(--sage-deep);border-color:var(--sage-deep);color:var(--paper);}
+  .join-btn::after{content:" \2197";}
+  .join-btn:hover{background:#3d4520;}
+  .join-links a.join-btn{color:var(--paper);text-decoration:none;font-size:.82rem;align-self:flex-start;}
+  .join-links a.join-btn:hover{color:var(--paper);background:#3d4520;}
